@@ -1,0 +1,179 @@
+
+OS/161 base system version 1.99.05
+Copyright (c) 2000, 2001, 2002, 2003, 2004, 2005, 2008, 2009
+   President and Fellows of Harvard College.  All rights reserved.
+
+Marco Valente's system version 0 (ASST2 #71)
+
+300k physical memory available
+Device probe...
+lamebus0 (system main bus)
+emu0 at lamebus0
+ltrace0 at lamebus0
+ltimer0 at lamebus0
+beep0 at ltimer0
+rtclock0 at ltimer0
+lrandom0 at lamebus0
+random0 at lrandom0
+lhd0 at lamebus0
+lhd1 at lamebus0
+lser0 at lamebus0
+con0 at lser0
+
+cpu0: MIPS r3000
+cpu1: MIPS r3000
+cpu2: MIPS r3000
+cpu3: MIPS r3000
+OS/161 kernel: dth
+Operation took 0.000021240 seconds
+OS/161 kernel:  p testbin/forktest
+New Proc with pid 2
+Forking thread: testbin/forktest
+Syscall: write(2,401c30,22)
+(program name unknown)Syscall: write(2,401c48,2)
+: Syscall: write(2,7ffffef8,1)
+SSyscall: write(2,7ffffef8,1)
+tSyscall: write(2,7ffffef8,1)
+aSyscall: write(2,7ffffef8,1)
+rSyscall: write(2,7ffffef8,1)
+tSyscall: write(2,7ffffef8,1)
+iSyscall: write(2,7ffffef8,1)
+nSyscall: write(2,7ffffef8,1)
+gSyscall: write(2,7ffffef8,1)
+.Syscall: write(2,401c4c,1)
+
+New Proc with pid 3
+Set 3 parent id to 2
+Array has no allocated elements
+Checking whether elem added to allproc
+Added element to allproc
+Forking thread: testbin/forktest
+Syscall: write(1,7fffffb8,1)
+0Syscall: write(1,7fffffb8,1)
+0New Proc with pid 4
+New Proc with pid 5
+Set 4 parent id to 2
+getProc pid is 2
+getProc result->id is 2
+getProc PID match
+Checking whether elem added to allproc
+Added element to allproc
+Forking thread: testbin/forktest
+Syscall: write(2,401c30,22)
+(program name unknown)Syscall: write(2,401c48,2)
+: Syscall: write(2,7ffffee0,1)
+fSyscall: write(2,7ffffee0,1)
+oSyscall: write(2,7ffffee0,1)
+rSyscall: write(2,7ffffee0,1)
+kSyscall: write(2,401c48,2)
+: Syscall: write(2,401d24,13)
+Out of memorySyscall: write(2,401c4c,1)
+S
+et 5 parent id to 3
+Checking whether elem added to allproc
+Added element to allproc
+Forking thread: testbin/forktest
+Syscall: write(2,401c30,22)
+(program name unknown)Syscall: write(2,401c48,2)
+: Syscall: write(2,7ffffee0,1)
+fSyscall: write(2,7ffffee0,1)
+oSyscall: write(2,7ffffee0,1)
+rSyscall: write(2,7ffffee0,1)
+kSyscall: write(2,401c48,2)
+: Syscall: write(2,401d24,13)
+Out of memorySyscall: write(2,401c4c,1)
+S
+yscall: write(1,7fffffb8,1)
+1Syscall: write(1,7fffffb8,1)
+1New Proc with pid 6
+Syscall: write(2,401c30,22)
+(program name unknown)Syscall: write(2,401c48,2)
+: Syscall: write(2,7ffffee0,1)
+fSyscall: write(2,7ffffee0,1)
+oNew Proc with pid 7
+Syscall: write(2,401c30,22)
+(program nameS unknown)yscall: write(2,7ffffee0,1)
+rSyscall: write(2,7ffffee0,1)
+kSyscall: write(2,401c48,2)
+: Syscall: write(2,401d24,13)
+Out of memorySyscall: write(2,401c4c,1)
+S
+yscall: write(2,401c48,2)
+: Syscall: write(2,7ffffee0,1)
+fSyscall: write(2,7ffffee0,1)
+oSyscall: write(2,7ffffee0,1)
+rSyscall: write(2,7ffffee0,1)
+kSyscall: write(2,401c48,2)
+: Syscall: write(2,401d24,13)
+Out of memorySyscall: write(2,401c4c,1)
+S
+yscall: write(1,7fffffb8,1)
+2Syscall: write(1,7fffffb8,1)
+2New Proc with pid 8
+Syscall: write(2,401c30,22)
+(program name unknown)Syscall: write(2,401c48,2)
+: Syscall: write(2,7ffffee0,1)
+fSyscall: write(2,7ffffee0,1)
+oSyscall: write(2,7ffffee0,1)
+rNew Proc with pid 9
+Syscall: write(2,401c30,22)
+(program namSe unknown)yscall: write(2,7ffffee0,1)
+kSyscall: write(2,401c48,2)
+: Syscall: write(2,401d24,13)
+Out of memorySyscall: write(2,401c4c,1)
+S
+yscall: write(2,401c48,2)
+: Syscall: write(2,7ffffee0,1)
+fSyscall: write(2,7ffffee0,1)
+oSyscall: write(2,7ffffee0,1)
+rSyscall: write(2,7ffffee0,1)
+kSyscall: write(2,401c48,2)
+: Syscall: write(2,401d24,13)
+Out of memorySyscall: write(2,401c4c,1)
+S
+yscall: write(1,7fffffb8,1)
+3Syscall: write(1,7fffffb8,1)
+3pid is 3Syscall: _exit(0)
+Searching for Parent of Proc  3
+getProc pid is 2
+getProc result->id is 2
+getProc PID match
+Parent's of 3 are being awoken
+getProc pid is 2
+getProc result->id is 2
+getProc PID match
+Proc with id 2, parent id 0, and exited 0
+Proc with id 3, parent id 2, and exited 1
+Proc with id 0, parent id 0, and exited 222
+Proc with id 0, parent id 0, and exited 222
+getProc pid is 3
+getProc result->id is 2
+getProc result->id is 3
+getProc PID match
+Syscall: write(1,7fffffb8,1)
+
+Syscall: write(2,401c30,22)
+(program name unknown)Syscall: write(2,401c48,2)
+: Syscall: write(2,7ffffef8,1)
+CSyscall: write(2,7ffffef8,1)
+oSyscall: write(2,7ffffef8,1)
+mSyscall: write(2,7ffffef8,1)
+pSyscall: write(2,7ffffef8,1)
+lSyscall: write(2,7ffffef8,1)
+eSyscall: write(2,7ffffef8,1)
+tSyscall: write(2,7ffffef8,1)
+eSyscall: write(2,7ffffef8,1)
+.Syscall: write(2,401c4c,1)
+
+Syscall: _exit(0)
+Proc 2 has no parent
+Found Proc 2 to remove
+getProc pid is 2
+getProc result->id is 3
+getProc result->id is 0
+getProc result->id is 0
+No parent found in arr for 3
+No parent found in arr for 0
+panic: Fatal exception 4 (Address error on load) in kernel mode
+panic: EPC 0x80024174, exception vaddr 0xdeadbeef
+panic: I can't handle this... I think I'll just die now...
