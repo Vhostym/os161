@@ -50,6 +50,7 @@
 #include <vfs.h>
 #include <synch.h>
 #include <kern/fcntl.h>  
+#include <syscall.h>
 
 /*
  * The process for the kernel; this holds all the kernel-only threads.
@@ -92,6 +93,26 @@ proc_create(const char *name)
 
 	threadarray_init(&proc->p_threads);
 	spinlock_init(&proc->p_lock);
+        proc->waitLock = lock_create("proc_lock");
+
+        if (proc->waitLock == NULL) {
+            spinlock_cleanup(&proc->p_lock);
+            kfree(proc->p_name);
+            kfree(proc);
+            return NULL;
+        }
+
+        proc->condVar = cv_create("conditional variable");
+
+        if (proc->condVar == NULL) {
+            lock_destroy(proc->waitLock);
+            spinlock_cleanup(&proc->p_lock);
+            kfree(proc->p_name);
+            kfree(proc);
+            return NULL;
+        }
+
+        proc->exited = false;
 
 	/* VM fields */
 	proc->p_addrspace = NULL;
@@ -102,6 +123,16 @@ proc_create(const char *name)
 #ifdef UW
 	proc->console = NULL;
 #endif // UW
+        allProcs_init();
+        proc->id = ++procIdCounter;
+        DEBUG(DB_SYSCALL, "New Proc with pid %d\n", proc->id);
+        if (procIdCounter < 0) {
+            procIdCounter = 0;
+            proc->id = ++procIdCounter;
+        }
+        proc->parent_id = 0;
+        proc->exited = 0;
+        proc->exitcode = 0;
 
 	return proc;
 }
@@ -112,6 +143,7 @@ proc_create(const char *name)
 void
 proc_destroy(struct proc *proc)
 {
+    //int pid = proc->id;
 	/*
          * note: some parts of the process structure, such as the address space,
          *  are destroyed in sys_exit, before we get here
@@ -182,6 +214,7 @@ proc_destroy(struct proc *proc)
 	  V(no_proc_sem);
 	}
 	V(proc_count_mutex);
+       // DEBUG(DB_SYSCALL, "Proc %d has been destroyed\n", pid);
 #endif // UW
 	
 

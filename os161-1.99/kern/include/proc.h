@@ -51,7 +51,13 @@ struct semaphore;
 struct proc {
 	char *p_name;			/* Name of this process */
 	struct spinlock p_lock;		/* Lock for this structure */
+        struct lock * waitLock;
 	struct threadarray p_threads;	/* Threads in this process */
+        pid_t id;
+        pid_t parent_id;
+        struct cv * condVar;
+        bool exited;
+        int exitcode;
 
 	/* VM */
 	struct addrspace *p_addrspace;	/* virtual address space */
